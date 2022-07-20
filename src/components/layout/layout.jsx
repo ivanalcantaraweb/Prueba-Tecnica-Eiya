@@ -7,12 +7,12 @@ import SearchBar from "../searchbar/searchbar";
 const Layout = ({ children }) => {
   return (
     <Grid
-      gridTemplateRows={"repeat(3, 1fr)"}
-      gridTemplateColumns={"repeat(12, 1fr)"}
+      gridTemplateRows={{ sm: "repeat(3, 1fr)", base: "300px 1fr"}}
+      gridTemplateColumns={{ sm:"repeat(12, 1fr)", base: "repeat(4, 1fr)"}} 
       minH="100vh"
     >
-      <GridItem colStart={1} colEnd={3} rowStart={1} rowEnd={4} bg={COLORS.white}>
-        <Grid h="100%" templateRows="100px 1fr" templateColumns="1fr">
+      <GridItem colStart={{sm: 1, base: 1}} colEnd={{sm: 3, base: 5}} rowStart={{sm: 1, base: 1}} rowEnd={{sm: 4, base: 2}} bg={COLORS.white}>
+        <Grid h="100%" templateRows="150px 1fr" templateColumns="1fr">
           <GridItem col={1}>
             <Flex
               justifyContent={"center"}
@@ -28,8 +28,8 @@ const Layout = ({ children }) => {
           </GridItem>
         </Grid>
       </GridItem>
-      <GridItem colStart={3} colEnd={13} rowStart={1} rowEnd={4} bg="#F4F4F4">
-        <Grid h="100%" templateRows="100px 1fr" templateColumns="1fr">
+      <GridItem colStart={{sm: 3, base: 1}} colEnd={{sm: 13, base: 13}} rowStart={{sm: 1, base: 2}} rowEnd={{sm: 4, base: 2}} overflowY={{sm: "none", base: "scroll"}} bg="#F4F4F4">
+        <Grid h="100%" templateRows="100px 1fr" templateColumns="1fr" display={{sm: "grid", base: "block"}}>
           <GridItem col={1}>
             <Flex
               justifyContent={"flex-end"}

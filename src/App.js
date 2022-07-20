@@ -10,6 +10,7 @@ import EditProduct from "./pages/editProduct/editProduct";
 import RegisterInventory from "./pages/registerInventory/registerInventory";
 import About from "./pages/about/about";
 import Search from "./pages/search/search";
+import NoMatch from "./pages/noMatch/noMatch";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,8 @@ function App() {
             path="buscar/:querySearch"
             element={<Search />}
           />
+            <Route path="*" element={<NoMatch />} />
+      
         </Routes>
       </MainLayout>
     </ChakraProvider>

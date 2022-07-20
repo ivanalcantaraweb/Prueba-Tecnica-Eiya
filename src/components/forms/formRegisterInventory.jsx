@@ -24,11 +24,13 @@ const FormRegisterInventory = () => {
 
   useEffect(() => {
     const data = productsState.find((product) => product.id == params.idProduct) /* eslint eqeqeq: 0 */
-    if (params) {
+    if (params && data) {
       setState(data);
       setPreviousCount(data.countInventory)
+    } else {
+      navigate("/");
     }
-  }, [params, productsState]);
+  }, [params, productsState, navigate]);
 
   const onChangeInventory = (event, prop) => {
     setState({
@@ -46,9 +48,10 @@ const FormRegisterInventory = () => {
     onOpen();
   }
 
+
   return (<>
     <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
-      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
+      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"} display={{base: 'block', sm: 'grid'}}>
         <GridItem padding={"1rem"}>
           <Flex
             justifyContent={"center"}

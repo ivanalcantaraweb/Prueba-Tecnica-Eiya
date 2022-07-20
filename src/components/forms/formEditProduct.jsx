@@ -25,6 +25,8 @@ const FormEditProduct = () => {
   const productsState = useSelector((state) => state.products);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  
+
   const handleOnChange = (event) => {
     setState({
       ...state,
@@ -38,12 +40,19 @@ const FormEditProduct = () => {
   };
 
   useEffect(() => {
+   
     if (params) {
       setState(
         productsState.find((product) => product.id == params.idProduct)
       ); /* eslint eqeqeq: 0 */
     }
+   
   }, [params, productsState]);
+
+  /* Validar que siempre exista informacion en secciones interiores */ 
+  useEffect(()=>{
+    if(productsState.length < 1) navigate("/")
+  },[productsState, navigate])
 
   const handleChangeImage = () => {
     setPreviewImage(true);
@@ -56,7 +65,7 @@ const FormEditProduct = () => {
   return (
     <>
     <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
-      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
+      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"} display={{base: 'block', sm: 'grid'}}>
         <GridItem padding={"1rem"}>
           {previewImage ? 
             <Fragment>

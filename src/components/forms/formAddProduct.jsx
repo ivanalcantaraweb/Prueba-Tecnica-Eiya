@@ -1,6 +1,6 @@
 import { Grid, GridItem, Flex, Box, FormControl, FormLabel, Input, Textarea, InputGroup, InputLeftAddon, InputLeftElement, Button, Image } from "@chakra-ui/react";
 import ButtonComponent from "../button/button";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../features/products/productsSlice";
@@ -38,6 +38,9 @@ const FormAddProduct = () => {
   }
 
   const handleOnSubmit = () => {
+    // Validar la información de los formualarios con una libreria externa 
+    // Posible Formik 
+
     dispatch(
       addProduct({
         ...state,
@@ -49,10 +52,15 @@ const FormAddProduct = () => {
 
   const handlePreviewImage = () => setPreviewImage(true);
 
+   /* Validar que siempre exista informacion en secciones interiores */ 
+  useEffect(()=>{
+    if(productsState.length < 1) navigate("/")
+  },[productsState, navigate])
+
   return (
     <>
-    <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
-      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
+    <FormControl isRequired bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
+      <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"} display={{base: 'block', sm: 'grid'}}>
         <GridItem padding={"1rem"}>
           <FormLabel htmlFor="text">Nombre del producto</FormLabel>
           <Input

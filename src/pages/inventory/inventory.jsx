@@ -11,16 +11,17 @@ const Inventory = () => {
   return (
     <section>
       <Flex
-        flexDirection={"row"}
+        flexDirection={{sm: "row", base: "column"}}
         justifyContent={"space-between"}
         alignItems={"center"}
         paddingBottom={"1rem"}
         marginBottom={"1rem"}
+       
       >
-        <Title type="Title">
+        <Title type="Title" >
           <Archive height={"36px"} width={"36px"} /> Inventario general
         </Title>
-        <Flex justifyContent={"flex-end"}>
+        <Flex justifyContent={"flex-end"}  marginTop={{base: "1rem", sm: "0rem"}}>
           <ButtonComponent color={"purple"} href={"agregar-producto"} size="md">
             Agregar producto
           </ButtonComponent>

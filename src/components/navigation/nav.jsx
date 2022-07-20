@@ -9,7 +9,7 @@ const Nav = () => {
   };
   return (
     <nav>
-      <Flex flexDirection={"column"} marginTop={"3rem"}>
+      <Flex flexDirection={"column"} >
         <NavLink
           to="/"
           style={({ isActive }) => (isActive ? activeStyle : undefined)}

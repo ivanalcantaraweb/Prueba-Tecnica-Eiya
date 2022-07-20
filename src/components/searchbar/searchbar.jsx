@@ -21,7 +21,7 @@ const SearchBar = () => {
   };
   return (
     <div>
-      <InputGroup w={"500px"}>
+      <InputGroup w={{sm: "500px", base: "100%"}}>
         <InputLeftElement
           pointerEvents="none"
           children={<SearchIcon color="gray.300" />}

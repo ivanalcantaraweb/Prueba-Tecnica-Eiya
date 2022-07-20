@@ -28,11 +28,13 @@ const AlertDialogChanges = ({
           </AlertDialogHeader>
 
           <AlertDialogBody>
-            {type === 1 && beforeInventory < afterInventory ? (
-             <BeforeInventory inventory={afterInventory - beforeInventory }/>
-            ) : (
-              <AfterInventory inventory={afterInventory - beforeInventory }/>
-            )}
+            {type === 1 ? (
+              beforeInventory < afterInventory ? (
+                <BeforeInventory inventory={afterInventory - beforeInventory} />
+              ) : (
+                <AfterInventory inventory={afterInventory - beforeInventory} />
+              )
+            ) : null}
             ¿Estás seguro que quieres {OPCIONES_ALERT[type].body}
           </AlertDialogBody>
 
