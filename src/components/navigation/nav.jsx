@@ -28,7 +28,7 @@ const Nav = () => {
             borderTop={"1px solid #e3e3e3"}
           >
             <Home />
-            <Text marginLeft={"0.5rem"}>Home</Text>
+            <Text marginLeft={"0.5rem"}> Home </Text>
           </Box>
         </NavLink>
         <NavLink

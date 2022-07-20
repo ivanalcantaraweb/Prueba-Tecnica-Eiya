@@ -1,44 +1,32 @@
-import {
-  Grid,
-  GridItem,
-  Flex,
-  FormControl,
-  FormLabel,
-  NumberInput,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-  NumberInputField,
-  Heading,
-  Button,
-  Image,
-} from "@chakra-ui/react";
-import ButtonComponent from "../button/button";
+import { Grid, GridItem, Flex, FormControl, FormLabel, NumberInput, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, NumberInputField, Heading, Button, Image } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateInventory } from "../../features/products/productsSlice";
+import ButtonComponent from "../button/button";
+import { COLORS } from "../../utils/colors";
+import AlertDialogChanges from "../alertDialog/alertDialogChanges";
+import { useDisclosure } from "@chakra-ui/react";
 
 const FormRegisterInventory = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const productsState = useSelector((state) => state.products);
   const [state, setState] = useState({
     id: undefined,
     title: "",
-    description: "",
-    price: undefined,
     countInventory: 0,
     image: undefined,
   });
+  const [previousCount, setPreviousCount] = useState()
 
   useEffect(() => {
+    const data = productsState.find((product) => product.id == params.idProduct) /* eslint eqeqeq: 0 */
     if (params) {
-      setState(
-        productsState.find((product) => product.id == params.idProduct)
-      ); /* eslint eqeqeq: 0 */
+      setState(data);
+      setPreviousCount(data.countInventory)
     }
   }, [params, productsState]);
 
@@ -54,8 +42,12 @@ const FormRegisterInventory = () => {
     navigate("/");
   };
 
-  return (
-    <FormControl bg={"#f9f9f9"} padding={"2rem"} borderRadius={"8px"}>
+  const handleOpenDialog = () => {
+    onOpen();
+  }
+
+  return (<>
+    <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
       <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
         <GridItem padding={"1rem"}>
           <Flex
@@ -113,13 +105,21 @@ const FormRegisterInventory = () => {
             <Button
               colorScheme="purple"
               marginLeft={"1rem"}
-              onClick={() => handleUpdate()}
+              onClick={() => handleOpenDialog()}
               size="md"
             >
               Actualizar inventario
             </Button>
           </Flex>
     </FormControl>
+    <AlertDialogChanges  
+     isOpen={isOpen}
+     onClose={onClose}
+     updateElement={handleUpdate}
+     beforeInventory={parseInt(previousCount)}
+     afterInventory={parseInt(state.countInventory)}
+     type={1} />
+    </>
   );
 };
 

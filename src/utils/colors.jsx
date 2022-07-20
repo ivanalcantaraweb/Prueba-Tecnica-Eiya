@@ -1,3 +1,3 @@
-const COLORS = {
-    white: "#ffffff"
+export const COLORS = {
+    white: "#f9f9f9",
 }

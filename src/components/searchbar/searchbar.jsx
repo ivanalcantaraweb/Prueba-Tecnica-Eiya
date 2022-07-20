@@ -2,6 +2,7 @@ import { InputGroup, InputLeftElement, Input, Button } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { COLORS } from "../../utils/colors";
 
 const SearchBar = () => {
   const [queryParam, setQueryParam] = useState();
@@ -26,7 +27,7 @@ const SearchBar = () => {
           children={<SearchIcon color="gray.300" />}
         />
         <Input
-          bg={"#f9f9f9"}
+          bg={COLORS.white}
           type="text"
           placeholder="Buscar productos por nombre"
           onChange={(e) => handleOnChange(e)}

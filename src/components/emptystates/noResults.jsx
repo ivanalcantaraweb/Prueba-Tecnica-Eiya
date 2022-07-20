@@ -2,11 +2,12 @@ import { Button, Flex, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import NoResults from "../../media/emptyStates/emptyNoResults.png";
 import Title from "../title/title";
+import { COLORS } from "../../utils/colors";
 
 const EmptyStateNoResults = () => {
   return (
     <Flex
-      bg={"#F9F9F9"}
+      bg={COLORS.white}
       height={"500px"}
       borderRadius={"8px"}
       justify={"center"}

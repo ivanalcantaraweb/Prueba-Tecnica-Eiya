@@ -1,13 +1,11 @@
 import { Flex, Image } from "@chakra-ui/react";
-import ImageEmptyState from "../../media/emptyStates/noProducts.png";
+import ImageEmptyState from "../../media/emptyStates/llegadaInventario.png";
 import Title from "../title/title";
-import { COLORS } from "../../utils/colors";
 
-const EmptyStateNoProducts = () => {
+const BeforeInventory = ({ inventory }) => {
   return (
     <Flex
-      bg={COLORS.white}
-      height={"500px"}
+      height={"400px"}
       borderRadius={"8px"}
       justify={"center"}
       alignItems={"center"}
@@ -19,9 +17,9 @@ const EmptyStateNoProducts = () => {
         src={ImageEmptyState}
         alt="empty state"
       />
-      <Title type={"Subtitle"}> No hay productos en el inventario</Title>
+      <Title type={"Subtitle"}> Llegada al inventario de {inventory} productos</Title>
     </Flex>
   );
 };
 
-export default EmptyStateNoProducts;
+export default BeforeInventory;

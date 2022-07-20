@@ -1,4 +1,5 @@
 import { Grid, GridItem, Flex} from "@chakra-ui/react";
+import { COLORS } from "../../utils/colors";
 import Logo from "../logo/logo";
 import Nav from "../navigation/nav";
 import SearchBar from "../searchbar/searchbar";
@@ -10,7 +11,7 @@ const Layout = ({ children }) => {
       gridTemplateColumns={"repeat(12, 1fr)"}
       minH="100vh"
     >
-      <GridItem colStart={1} colEnd={3} rowStart={1} rowEnd={4} bg="#F9F9F9">
+      <GridItem colStart={1} colEnd={3} rowStart={1} rowEnd={4} bg={COLORS.white}>
         <Grid h="100%" templateRows="100px 1fr" templateColumns="1fr">
           <GridItem col={1}>
             <Flex

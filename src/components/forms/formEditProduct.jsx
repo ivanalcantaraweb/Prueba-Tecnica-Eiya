@@ -1,18 +1,4 @@
-import {
-  Grid,
-  GridItem,
-  Flex,
-  Input,
-  FormControl,
-  FormLabel,
-  InputGroup,
-  InputLeftElement,
-  Textarea,
-  Button,
-  Image,
-  InputLeftAddon,
-  Box,
-} from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Input, FormControl, FormLabel, InputGroup, InputLeftElement, Textarea, Button, Image, InputLeftAddon, Box } from "@chakra-ui/react";
 import ButtonComponent from "../button/button";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -20,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { editProduct } from "../../features/products/productsSlice";
 import { LinkIcon } from "@chakra-ui/icons";
 import { Fragment } from "react";
-
+import { COLORS } from "../../utils/colors";
+import AlertDialogChanges from "../alertDialog/alertDialogChanges";
+import { useDisclosure } from "@chakra-ui/react";
 
 const FormEditProduct = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const productsState = useSelector((state) => state.products);
   const [state, setState] = useState({
     id: undefined,
     title: "",
@@ -35,6 +22,8 @@ const FormEditProduct = () => {
     image: undefined,
   });
   const [previewImage, setPreviewImage] = useState(false);
+  const productsState = useSelector((state) => state.products);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOnChange = (event) => {
     setState({
@@ -60,8 +49,13 @@ const FormEditProduct = () => {
     setPreviewImage(true);
   };
 
+  const handleOpenDialog = () => {
+    onOpen();
+  }
+
   return (
-    <FormControl bg={"#f9f9f9"} padding={"2rem"} borderRadius={"8px"}>
+    <>
+    <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
       <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
         <GridItem padding={"1rem"}>
           {previewImage ? 
@@ -170,13 +164,19 @@ const FormEditProduct = () => {
         <Button
           colorScheme="purple"
           marginLeft={"1rem"}
-          onClick={() => handleUpdate()}
+          onClick={() => handleOpenDialog()}
           size="md"
         >
           Actualizar producto
         </Button>
       </Flex>
     </FormControl>
+     <AlertDialogChanges  
+     isOpen={isOpen}
+     onClose={onClose}
+     updateElement={handleUpdate}
+     type={2} />
+ </>
   );
 };
 

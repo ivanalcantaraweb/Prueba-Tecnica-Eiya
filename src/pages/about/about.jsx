@@ -2,6 +2,7 @@ import { Heading, Spacer, Text } from "@chakra-ui/react"
 import { Flex, Box } from "@chakra-ui/react";
 import { HelpCircle } from "react-feather";
 import Title from "../../components/title/title";
+import { COLORS } from "../../utils/colors";
 
 const About = () => {
     return <section>
@@ -13,7 +14,7 @@ const About = () => {
         marginBottom={"1rem"}
       >  <Title type="Title"><HelpCircle  height={"36px"} width={"36px"} /> Acerca de este proyecto</Title></Flex>
      
-    <Box bg={"#f9f9f9"} minHeight={"400px"} padding={"3rem"}>
+    <Box bg={COLORS.white} minHeight={"400px"} padding={"3rem"}>
         <Text> Proyecto realizado por José Iván Alcantara.</Text>
         <Text> Como parte de un examen práctico para entrar a la empresa Eiya! bajo el rol de Front-end Developer.</Text>
         <Spacer height={"3rem"}></Spacer>

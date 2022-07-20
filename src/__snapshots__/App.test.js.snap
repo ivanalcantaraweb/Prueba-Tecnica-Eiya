@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the app 1`] = `
+<DocumentFragment>
+  <div
+    class="css-1o35qp6"
+  >
+    <div
+      class="css-jkttv9"
+    >
+      <div
+        class="css-b96vs1"
+      >
+        <div
+          class="css-0"
+          col="1"
+        >
+          <div
+            class="css-1ttbvbc"
+          >
+            <img
+              alt="logo"
+              class="chakra-image css-15rhgjd"
+              src="logoEiya.png"
+            />
+          </div>
+        </div>
+        <div
+          class="css-mjy4op"
+        >
+          <nav>
+            <div
+              class="css-wbhiop"
+            >
+              <a
+                aria-current="page"
+                class="active"
+                href="/"
+                style="color: rgb(125, 92, 198); font-weight: 600;"
+              >
+                <div
+                  class="css-1mgazby"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    />
+                    <polyline
+                      points="9 22 9 12 15 12 15 22"
+                    />
+                  </svg>
+                  <p
+                    class="chakra-text css-1f2k2gl"
+                  >
+                    Home
+                  </p>
+                </div>
+              </a>
+              <a
+                class=""
+                href="/acerca"
+              >
+                <div
+                  class="css-17s41bc"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                    />
+                    <path
+                      d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"
+                    />
+                    <line
+                      x1="12"
+                      x2="12.01"
+                      y1="17"
+                      y2="17"
+                    />
+                  </svg>
+                  <p
+                    class="chakra-text css-1f2k2gl"
+                  >
+                    Acerca de 
+                  </p>
+                </div>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-c16ni"
+    >
+      <div
+        class="css-b96vs1"
+      >
+        <div
+          class="css-0"
+          col="1"
+        >
+          <div
+            class="css-1q8oclq"
+          >
+            <div>
+              <div
+                class="chakra-input__group css-12xt95m"
+              >
+                <div
+                  class="chakra-input__left-element css-1cw84h2"
+                >
+                  <svg
+                    class="chakra-icon css-zgjiqu"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M23.384,21.619,16.855,15.09a9.284,9.284,0,1,0-1.768,1.768l6.529,6.529a1.266,1.266,0,0,0,1.768,0A1.251,1.251,0,0,0,23.384,21.619ZM2.75,9.5a6.75,6.75,0,1,1,6.75,6.75A6.758,6.758,0,0,1,2.75,9.5Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
+                <input
+                  class="chakra-input css-1rra147"
+                  placeholder="Buscar productos por nombre"
+                  type="text"
+                />
+                <button
+                  class="chakra-button css-10k50cq"
+                  type="button"
+                >
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="css-q5fqw0"
+        >
+          <section>
+            <div
+              class="css-1w3aqxg"
+            >
+              <h1
+                class="chakra-heading css-1km6sjr"
+              >
+                <svg
+                  fill="none"
+                  height="36px"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="36px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polyline
+                    points="21 8 21 21 3 21 3 8"
+                  />
+                  <rect
+                    height="5"
+                    width="22"
+                    x="1"
+                    y="3"
+                  />
+                  <line
+                    x1="10"
+                    x2="14"
+                    y1="12"
+                    y2="12"
+                  />
+                </svg>
+                 Inventario general
+              </h1>
+              <div
+                class="css-1bvc4cc"
+              >
+                <button
+                  class="chakra-button css-du4d3r"
+                  type="button"
+                >
+                  Agregar producto
+                </button>
+              </div>
+            </div>
+            <div
+              class="css-12o0m4w"
+            >
+              <img
+                alt="empty state"
+                class="chakra-image css-11gyfkc"
+                src="noProducts.png"
+              />
+              <h2
+                class="chakra-heading css-rce8dd"
+              >
+                 No hay productos en el inventario
+              </h2>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span />
+</DocumentFragment>
+`;

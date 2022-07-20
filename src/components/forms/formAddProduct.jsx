@@ -1,18 +1,4 @@
-import {
-  Grid,
-  GridItem,
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
-  InputGroup,
-  InputLeftAddon,
-  InputLeftElement,
-  Button,
-  Image,
-} from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Box, FormControl, FormLabel, Input, Textarea, InputGroup, InputLeftAddon, InputLeftElement, Button, Image } from "@chakra-ui/react";
 import ButtonComponent from "../button/button";
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../features/products/productsSlice";
 import EmptyImage from "../../media/emptyStates/emptyImage.png";
 import { LinkIcon } from "@chakra-ui/icons";
+import { COLORS } from "../../utils/colors"; 
+import AlertDialogChanges from "../alertDialog/alertDialogChanges";
+import { useDisclosure } from "@chakra-ui/react";
 
 const FormAddProduct = () => {
   const [state, setState] = useState({
@@ -35,6 +24,7 @@ const FormAddProduct = () => {
   const navigate = useNavigate();
 
   const productsState = useSelector((state) => state.products);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handleOnChange = (event) => {
     setState({
@@ -42,6 +32,11 @@ const FormAddProduct = () => {
       [event.target.name]: event.target.value,
     });
   };
+
+  const handleOpenDialog = () => {
+    onOpen();
+  }
+
   const handleOnSubmit = () => {
     dispatch(
       addProduct({
@@ -55,7 +50,8 @@ const FormAddProduct = () => {
   const handlePreviewImage = () => setPreviewImage(true);
 
   return (
-    <FormControl bg={"#f9f9f9"} padding={"2rem"} borderRadius={"8px"}>
+    <>
+    <FormControl bg={COLORS.white} padding={"2rem"} borderRadius={"8px"}>
       <Grid h="100%" templateRows="1fr" templateColumns="1fr 1fr" gap={"1rem"}>
         <GridItem padding={"1rem"}>
           <FormLabel htmlFor="text">Nombre del producto</FormLabel>
@@ -154,12 +150,18 @@ const FormAddProduct = () => {
         <Button
           colorScheme="purple"
           marginLeft={"1rem"}
-          onClick={(e) => handleOnSubmit(e)}
+          onClick={() => handleOpenDialog()}
         >
           Guardar producto
         </Button>
       </Flex>
     </FormControl>
+    <AlertDialogChanges  
+        isOpen={isOpen}
+        onClose={onClose}
+        updateElement={handleOnSubmit}
+        type={3} />
+    </>
   );
 };
 
